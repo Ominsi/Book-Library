@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Class for the library.
@@ -28,22 +29,25 @@ public class Library{
 	 * Removes a book from the list using title.
 	 */
 	public void removeBook(Book book){
+		Iterator<Book> it = books.iterator();
 		boolean searching = true;
 		int index = 0;
 
-		while(!books.isEmpty() && searching && index < books.size()){
+		while(searching && it.hasNext()){
+			Book currentBook = it.next();
 
-			if (book.getDetails().equals(books.get(index).getDetails())){
-				System.out.println("Successfully removed " + books.remove(index).getDetails());
+			if (book.getDetails().equals(currentBook.getDetails())){
+				System.out.println("Successfully removed " + currentBook.getDetails());
+				it.remove();
 				searching = false;
 			}
 			else{
 				index ++;
 			}
+		}
 
-			if (searching){
-				System.out.println("ERROR: No book found with given title/author. (Hint: Make Sure Capitalization is Correct)");
-			}
+		if (searching){
+			System.out.println("ERROR: No book found with given title/author. (Hint: Make Sure Capitalization is Correct)");
 		}
 	}
 
