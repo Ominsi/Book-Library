@@ -22,7 +22,7 @@ public class Library{
 	 */
 	public void addBook(Book book){
 		books.add(book);
-		System.out.println("Successfully added " + book.getDetails());
+		System.out.println("\nSuccessfully added " + book.getDetails());
 		sortByTitle();
 	}
 
@@ -34,6 +34,8 @@ public class Library{
 		boolean searching = true;
 		int index = 0;
 
+		System.out.print("\n");
+		
 		while(searching && it.hasNext()){
 			Book currentBook = it.next();
 
@@ -56,10 +58,11 @@ public class Library{
 	 * Prints all the books in the library.
 	 */
 	public void printBooks(){
-
+		System.out.print("\n");
 		if (!books.isEmpty()){
+			System.out.println("Books in Library:");
 			for (Book book : books){
-				System.out.println(books.indexOf(book) + ".\t" + book.getDetails());
+				System.out.println((books.indexOf(book)+1) + ".\t" + book.getDetails());
 			}
 		}
 

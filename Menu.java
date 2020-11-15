@@ -34,6 +34,7 @@ public class Menu{
 	* Prints all menu items as a list.
 	*/
 	public void printMenu(){
+		System.out.println("\nMain Menu");
 		for (int i = 0; i < menuItems.length; i++){
 			System.out.println((i+1) + ". " + menuItems[i]);
 		}
@@ -48,21 +49,24 @@ public class Menu{
 		boolean isValid = false;
 
 		while (!isValid){
-			System.out.println("Enter (1" + "-" + menuItems.length + ") Choice");
+			System.out.println("\nEnter (1" + "-" + menuItems.length + ") Choice");
 			String userInput = scanner.nextLine();
 
 			switch (userInput){
 				case "1":
 					myLibrary.printBooks();
 					isValid = true;
+					waitToContinue();
 					break;
 				case "2":
 					myLibrary.addBook(chooseBook());
 					isValid = true;
+					waitToContinue();
 					break;
 				case "3":
 					myLibrary.removeBook(chooseBook());
 					isValid = true;
+					waitToContinue();
 					break;
 				case "4":
 					isValid = true;
@@ -78,20 +82,28 @@ public class Menu{
 
 	/**
 	 * Menu for getting title and author of book.
-	 * 
+	 * 1
 	 * @return Book object from given values.
 	 */
 	public Book chooseBook(){
 		String title = "";
 		String author = "";
 
-		System.out.println("Title of Book: ");
+		System.out.println("\nTitle of Book: ");
 		title = scanner.nextLine().trim();
 
-		System.out.println("Author of Book: ");
+		System.out.println("\nAuthor of Book: ");
 		author = scanner.nextLine().trim();
 
 		Book book = new Book(title, author);
 		return book;
+	}
+
+	/*
+	 * Keeps menu from reprinting until user enters anything.
+	 */
+	public void waitToContinue(){
+		System.out.print("\nPress Enter to return to main menu...");
+		scanner.nextLine();
 	}
 }
