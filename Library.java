@@ -23,6 +23,7 @@ public class Library{
 	public void addBook(Book book){
 		books.add(book);
 		System.out.println("Successfully added " + book.getDetails());
+		sortByTitle();
 	}
 
 	/**
@@ -65,5 +66,12 @@ public class Library{
 		else{
 			System.out.println("No Books in The Library.");
 		}
+	}
+
+	/**
+	* Sorts the book list alphabetically based on the title.
+	*/
+	public void sortByTitle(){
+		books.sort(new BookSorter());
 	}
 }
