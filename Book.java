@@ -1,8 +1,14 @@
-/**
-* Class to reprsent books.
-*/
-public class Book{
+import java.io.Serializable;
 
+/**
+* Class to represent books.
+*/
+public class Book implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 466108618059152384L;
 	private String title;
 	private String author;
 

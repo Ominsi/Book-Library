@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -70,8 +71,12 @@ public class Menu{
 					break;
 				case "4":
 					isValid = true;
+					try {
+						SaveAndLoad.save(myLibrary);
+					} catch (IOException e) {
+						e.printStackTrace();
+					}
 					System.exit(0);
-					//Add save and quit class
 					break;
 				default:
 					System.out.println("ERROR: Invalid Input");

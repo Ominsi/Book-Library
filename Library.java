@@ -1,11 +1,16 @@
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.io.Serializable;
 
 /**
  * Class for the library.
  */
-public class Library{
+public class Library implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1845275172191774714L;
 	private ArrayList<Book> books;
 
 	/**
@@ -32,7 +37,6 @@ public class Library{
 	public void removeBook(Book book){
 		Iterator<Book> it = books.iterator();
 		boolean searching = true;
-		int index = 0;
 
 		System.out.print("\n");
 		
@@ -43,9 +47,6 @@ public class Library{
 				System.out.println("Successfully removed " + currentBook.getDetails());
 				it.remove();
 				searching = false;
-			}
-			else{
-				index ++;
 			}
 		}
 
